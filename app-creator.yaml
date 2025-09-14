@@ -2,10 +2,10 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: argo-app-creator
-  namespace: irah-ns
+  namespace: argo
 spec:
   destination:
-    namespace: argo
+    namespace: irah-ns
     server: 'https://kubernetes.default.svc'
   source:
     path: values/manifests
