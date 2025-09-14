@@ -8,8 +8,8 @@ spec:
     app: {{ .Values.deployments.name }}
   ports:
     {{ range $ports := .Values.services.ports }}
-  - protocol: {{ $ports.protocol }}
-    port: {{ $ports.port}}
-    targetPort: {{ $ports.targetPort }}
+    - protocol: {{ $ports.protocol }}
+      port: {{ $ports.port}}
+      targetPort: {{ $ports.targetPort }}
     {{- end }}
   type: {{ .Values.services.serviceType }}
