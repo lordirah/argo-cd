@@ -1,0 +1,15 @@
+deployments:
+  name: test-app
+  replicaCount: 1
+  containers:
+    name: test-app
+    image: nginx:latest
+    ports:
+    - 8080
+services:
+  name: test-app
+  serviceType: ClusterIP
+  ports:
+  - servicePort: 8080
+    targetPort: 8080
+    protocol: TCP

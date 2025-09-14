@@ -36,5 +36,5 @@ roleRef:
   name: argocd-role
 subjects:
 - kind: ServiceAccount
-  name: argocd-app-controller
+  name: argocd-application-controller
   namespace: argo

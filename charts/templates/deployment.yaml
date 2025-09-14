@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.deployments.name }}
+  labels:
+    app: {{ .Values.deployments.name }}
+  namespace: irah-ns
+spec:
+  replicas: {{ .Values.deployments.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.deployments.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.deployments.name }}
+    spec:
+      containers:
+      - name: {{ .Values.deployments.containers.name }}
+        image: {{ .Values.deployments.image.name }}
+        ports:
+        {{ range $ports := .Values.deployments.containers.ports }}
+        - containerPort: {{ $ports }}
+        {{- end }}

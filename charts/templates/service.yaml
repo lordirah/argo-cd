@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.services.name }}
+  namespace: irah-ns
+spec:
+  selector:
+    app: {{ .Values.deployments.name }}
+  ports:
+    {{ range $ports := .Values.services.ports }}
+  - protocol: {{ $port.protocol }}
+    port: {{ $port.port}}
+    targetPort: {{ $port.targetPort }}
+    {{- end }}
+  type: {{ .Values.services.serviceType }}
