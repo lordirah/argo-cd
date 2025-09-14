@@ -6,7 +6,7 @@ metadata:
 spec:
   destination:
     namespace: irah-ns
-    server: https://kubernetes.default.svc
+    server: 'https://kubernetes.default.svc'
   source:
     path: charts/
     repoURL: git@github.com:lordirah/argo-cd.git
