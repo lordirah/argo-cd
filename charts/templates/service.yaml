@@ -9,7 +9,7 @@ spec:
   ports:
     {{ range $ports := .Values.services.ports }}
     - protocol: {{ $ports.protocol }}
-      port: {{ $ports.port}}
+      port: {{ $ports.servicePort}}
       targetPort: {{ $ports.targetPort }}
     {{- end }}
   type: {{ .Values.services.serviceType }}
