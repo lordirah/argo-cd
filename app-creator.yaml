@@ -5,7 +5,7 @@ metadata:
   namespace: irah-ns
 spec:
   destination:
-    namespace: irah-ns
+    namespace: argo
     server: 'https://kubernetes.default.svc'
   source:
     path: values/manifests
