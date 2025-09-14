@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.deployments.containers.name }}
-        image: {{ .Values.deployments.image.name }}
+        image: {{ .Values.deployments.image }}
         ports:
         {{ range $ports := .Values.deployments.containers.ports }}
         - containerPort: {{ $ports }}
