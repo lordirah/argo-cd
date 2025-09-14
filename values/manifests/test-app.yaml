@@ -8,7 +8,7 @@ spec:
     namespace: irah-ns
     server: https://kubernetes.default.svc
   source:
-    path: charts/
+    path: /charts/
     repoURL: git@github.com:lordirah/argo-cd.git
     targetRevision: master
     helm:
