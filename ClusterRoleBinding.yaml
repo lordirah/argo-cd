@@ -1,0 +1,40 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+  name: argocd-role
+rules:
+- apiGroups:
+  - '*'
+  resources:
+  - secrets
+  - configmaps
+  - '*'
+  verbs:
+  - get
+  - list
+  - watch
+  - '*'
+- apiGroups:
+  - argoproj.io
+  resources:
+  - applications
+  - appprojects
+  - '*'
+  verbs:
+  - create
+  - list
+  - '*'
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: argocd-rolebinding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: argocd-role
+subjects:
+- kind: ServiceAccount
+  name: argocd-app-controller
+  namespace: argo

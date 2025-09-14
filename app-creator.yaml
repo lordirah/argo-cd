@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-app-creator
+  namespace: argo
+spec:
+  destination:
+    namespace: mlops
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: values/manifests
+    repoURL: git@github.com:lordirah/argo-cd.git
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  project: default
