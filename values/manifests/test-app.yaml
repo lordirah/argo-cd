@@ -18,13 +18,13 @@ spec:
     automated:
       prune: true
       selfHeal: true
-  ignoreDifferences:
-  - group: autoscaling
-    kind: HorizontalPodAutoscaler
-    jqPathExpression:
-    - .spec.metrics[].resource.name | select((. == "cpu") or (. == "memory"))
-  - group: apps
-    kind: Deployment
-    jsonPointers:
-    - /spec/replicas
+  # ignoreDifferences:
+  # - group: autoscaling
+  #   kind: HorizontalPodAutoscaler
+  #   jqPathExpression:
+  #   - .spec.metrics[].resource.name | select((. == "cpu") or (. == "memory"))
+  # - group: apps
+  #   kind: Deployment
+  #   jsonPointers:
+  #   - /spec/replicas
   project: default
